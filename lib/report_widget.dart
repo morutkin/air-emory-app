@@ -2,6 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
+import 'package:instant/instant.dart';
+import 'response_widget.dart';
 
 Future<Post> fetchPost() async {
   //var sheet = new DateTime.now().day + 1;
@@ -71,6 +74,17 @@ class Value {
   }
 }
 
+// Function to get the last data entry
+ResponseWidget lastEntry(List<Entry> entryList) {
+  var timestamp = DateFormat('yyyy-MM-dd').format(dateTimeToZone(zone: "EST", datetime: DateTime.now()));
+  int i;
+  for (i = entryList.length-1; i > 0; i--) {
+    if (timestamp == entryList[i].timestamp.t.substring(0,10)) break;
+  }
+  print(entryList[i].timestamp.t);
+  return ResponseWidget(entryList[i].timestamp.t, entryList[i].temperature.t, entryList[i].humidity.t, entryList[i].pmfine.t);
+}
+
 class ReportWidget extends StatefulWidget {
   ReportWidget({Key key}) : super(key: key);
 
@@ -90,7 +104,8 @@ class _ReportState extends State<ReportWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
+        //backgroundColor: Colors.lightBlueAccent,
+        body: Container(
           child: FutureBuilder<Post>(
             future: post,
             builder: (context, snapshot) {
@@ -99,18 +114,19 @@ class _ReportState extends State<ReportWidget> {
                 var temperature = snapshot.data.feed.entries[0].temperature.t;
                 var humidity = snapshot.data.feed.entries[0].humidity.t;
                 var pmfine = snapshot.data.feed.entries[0].pmfine.t;
-                return Text('Timestamp: ' + timestamp +
-                            '\nPM\u2082\u002e\u2085: ' + pmfine + '\u03BCg/m\u00B3' +
-                            '\nTemperature: ' + temperature.substring(0,5) + ' \u2103' + 
-                            '\nRelative Humidity: ' + humidity.substring(0,5) + ' %',
-                            style: TextStyle(fontSize: 28),
-                );
+                  return Column(
+                    children: <Widget>[
+                      //Text('Air Quality Report generated at ' + DateFormat('yyyy-MM-dd HH:mm:ss').format(new DateTime.now())),
+                      Text('Air Quality Report', textAlign: TextAlign.center, style: TextStyle(fontSize: 28)),
+                      Text('generated at ' + DateFormat('yyyy-MM-dd HH:mm:ss').format(dateTimeToZone(zone: "EST", datetime: DateTime.now())) + " EST", textAlign: TextAlign.center, style:  TextStyle(fontSize: 15)),
+                      lastEntry(snapshot.data.feed.entries),
+                    ],
+                  );
               } else if (snapshot.hasError) {
                   return Text("${snapshot.error}");
               }
-
               // By default, show a loading spinner.
-              return CircularProgressIndicator();
+              return Center(child: CircularProgressIndicator());
             },
           ),
         ),
