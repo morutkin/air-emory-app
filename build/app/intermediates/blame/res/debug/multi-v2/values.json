@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/annamunslow/development/airemory/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/annamunslow/repos/air-emory-app/air-emory-app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/annamunslow/development/airemory/android/app/src/main/res/values/styles.xml",
+                    "source": "/Users/annamunslow/repos/air-emory-app/air-emory-app/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
