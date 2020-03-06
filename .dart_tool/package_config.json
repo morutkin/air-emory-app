@@ -44,6 +44,12 @@
       "languageVersion": "1.0"
     },
     {
+      "name": "clustering_google_maps",
+      "rootUri": "file:///Users/momorutkin/flutter/.pub-cache/hosted/pub.dartlang.org/clustering_google_maps-0.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "collection",
       "rootUri": "file:///Users/momorutkin/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.14.11",
       "packageUri": "lib/",
@@ -98,16 +104,22 @@
       "languageVersion": "2.6"
     },
     {
-      "name": "flutter_map_marker_cluster",
-      "rootUri": "file:///Users/momorutkin/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_map_marker_cluster-0.2.7",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
       "name": "flutter_test",
       "rootUri": "file:///Users/momorutkin/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "2.2"
+    },
+    {
+      "name": "geohash",
+      "rootUri": "file:///Users/momorutkin/flutter/.pub-cache/hosted/pub.dartlang.org/geohash-0.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "google_maps_flutter",
+      "rootUri": "file:///Users/momorutkin/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.21+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
     },
     {
       "name": "http",
@@ -136,6 +148,12 @@
     {
       "name": "latlong",
       "rootUri": "file:///Users/momorutkin/flutter/.pub-cache/hosted/pub.dartlang.org/latlong-0.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "location",
+      "rootUri": "file:///Users/momorutkin/flutter/.pub-cache/hosted/pub.dartlang.org/location-2.5.3",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -302,7 +320,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-02-29T06:07:57.050983Z",
+  "generated": "2020-02-29T22:10:29.498194Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }
